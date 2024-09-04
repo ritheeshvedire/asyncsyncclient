@@ -36,7 +36,7 @@ Worker Threads will update underlying datastructure using an atomic counter call
 
 *We use **approach TWO** for the code*
 
-#### Approach ONE
+#### Approach TWO (more details)
 simply in EventSubscriber class there are worker threads, that prefetch the data.
  this can be done in 2 ways:
  1. first way
