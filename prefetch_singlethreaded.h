@@ -10,24 +10,28 @@ namespace pst {
 
     const int MAX_BUFFER_SIZE = 1024;
     const int MAX_RETRIES = 3;
-    const int POLL_INTERVAL_MS = 100; // in milli seconds
+
 
     /*
-    EventSubscriber that uses 
-    1 async call : fetch_event_async(event_id, output_buf)
-    2 sync apis: bool poll_get_last_status() and does_event_exist(event_id))
+        Just prefetch one event at a time.
 
+        setup_stream(){
+          
 
-    This is a straight forward EventSubscriber implementation.
-    Both function APIS are NOT thread safe.
+          prefetch_next_event();
+        }
 
-    As the client is single threadead only.
+        receive(buff) {
+            if (prefetch exists){
+               copy the buff;
 
-    There is NOT much you can do to improve the throughput if SYNC APIs
-    are used inconjunction with Async API, as:
-        - Multi threading is NOT allowed
-        - call backs are NOT allowed
-        - caller expects event id iN ORDER
+               prefetch_next_event();
+
+             }
+             else {
+                do sync calling of current_event;
+              }
+        }
 
     */
     class EventSubscriber {
