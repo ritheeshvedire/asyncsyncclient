@@ -60,6 +60,7 @@ We do second way abnove for simplicity and intuitively better performance (and t
 1. Did not use Generic classes i.e templates
 2. C and C++ style mixed
 3. Thread safe logging
+4. Better Error messages //Strictly adhered to the available functions. So only used bool. But would have thrown exceptions.
 
 ## [TODO] TEST TODO
 1. Write server stub
