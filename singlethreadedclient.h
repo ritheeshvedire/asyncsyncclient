@@ -38,8 +38,15 @@ namespace st {
         ~EventSubscriber() {}
 
         bool setup_stream(int start_id) {
+
+            if (!does_event_exist(start_id)){
+                return false;
+            }
+            
             m_start_event_id = start_id; // this is for statistics
             m_next_event_id = start_id; 
+
+
             return true;
         }
 

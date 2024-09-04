@@ -58,6 +58,10 @@ namespace mt {
         }
 
         bool setup_stream(int start_id) {
+            
+            if (!does_event_exist(start_id)){
+                return false;
+            }
             m_next_fetch_event_id.store(start_id);
             m_next_event_id = start_id; // next_Event_id need not be atomic. Only used by caller using receive()
             return true;
