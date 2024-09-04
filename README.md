@@ -47,8 +47,8 @@ simply in EventSubscriber class there are worker threads, that prefetch the data
 
  2. Second way
     - there is atomic counter next_fetch_event_id
-    - multiple workers will update next_fetch_event_id + 1
-    - receive() wil have a seperate counter that only queries next ordered event
+    - multiple workers will update next_fetch_event_id + 1 and use that to get fetch event from the server
+    - receive() wil have a seperate counter that only queries next ordered event from the map
 
 We do second way abnove for simplicity and intuitively better performance (and to avoid complex logic in first way )
 
